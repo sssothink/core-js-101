@@ -446,10 +446,26 @@ function toStringList(arr) {
  *      { country: 'Russia',  city: 'Saint Petersburg' }
  *    ]
  */
-function sortCitiesArray(/* arr */) {
-  throw new Error('Not implemented');
+function sortCitiesArray(arr) {
+  const newArr = arr.sort((prev, next) => {
+    if (prev.country < next.country) {
+      return -1;
+    }
+    if (prev.country < next.country) {
+      return 1;
+    }
+    return arr;
+  });
+  return newArr.sort((prev, next) => {
+    if (prev.country === next.country && prev.city < next.city) {
+      return -1;
+    }
+    if (prev.country === next.country && prev.city < next.city) {
+      return 1;
+    }
+    return arr;
+  });
 }
-
 /**
  * Creates an identity matrix of the specified size
  *
@@ -468,8 +484,9 @@ function sortCitiesArray(/* arr */) {
  *           [0,0,0,1,0],
  *           [0,0,0,0,1]]
  */
-function getIdentityMatrix(/* n */) {
-  throw new Error('Not implemented');
+function getIdentityMatrix(n) {
+  const arr = Array(n).fill(Array(n).fill(0));
+  return arr;
 }
 
 /**
@@ -485,8 +502,13 @@ function getIdentityMatrix(/* n */) {
  *     0, 100 => [ 0, 1, 2, ..., 100 ]
  *     3, 3   => [ 3 ]
  */
-function getIntervalArray(/* start, end */) {
-  throw new Error('Not implemented');
+function getIntervalArray(start, end) {
+  let st = start - 1;
+  const arr = Array(end - st).fill().map(() => {
+    st += 1;
+    return st;
+  });
+  return arr;
 }
 
 /**
@@ -500,8 +522,8 @@ function getIntervalArray(/* start, end */) {
  *   [ 'a', 'a', 'a', 'a' ]  => [ 'a' ]
  *   [ 1, 1, 2, 2, 3, 3, 4, 4] => [ 1, 2, 3, 4]
  */
-function distinct(/* arr */) {
-  throw new Error('Not implemented');
+function distinct(arr) {
+  return arr.filter((elem, index, self) => index === self.indexOf(elem));
 }
 
 /**
@@ -534,8 +556,8 @@ function distinct(/* arr */) {
  *    "Poland" => ["Lodz"]
  *   }
  */
-function group(/* array, keySelector, valueSelector */) {
-  throw new Error('Not implemented');
+function group(array) {
+  return array;
 }
 
 
